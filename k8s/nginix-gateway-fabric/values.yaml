@@ -1,0 +1,9 @@
+# values.yaml
+nginx:
+  service:
+    type: NodePort
+    nodePorts:
+      - port: 30000
+        listenerPort: 80
+      - port: 30001
+        listenerPort: 443
