@@ -166,7 +166,24 @@ helm upgrade --install -f metrics-server/override.yaml \
   metrics-server metrics-server/metrics-server
 ```
 
-## 10. Kind Cluster 삭제
+## 10. k9s 설치
+
+```bash
+# For macOS
+brew install derailed/k9s/k9s
+
+# For Linux
+OS="$(uname | tr '[:upper:]' '[:lower:]')" &&
+ARCH="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/\(arm\)\(64\)\?.*/\1\2/' -e 's/aarch64$/arm64/')" &&
+VERSION="$(curl -s https://api.github.com/repos/derailed/k9s/releases/latest | jq -r '.tag_name')"
+
+curl -LO https://github.com/derailed/k9s/releases/download/${VERSION}/k9s_${OS}_${ARCH}.deb
+
+sudo apt install ./k9s_${OS}_${ARCH}.deb
+rm k9s_${OS}_${ARCH}.deb
+```
+
+## 11. Kind Cluster 삭제
 
 ```bash
 kind delete cluster
