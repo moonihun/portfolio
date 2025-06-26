@@ -1,7 +1,7 @@
 resource "oci_containerengine_cluster" "k8s_cluster" {
   compartment_id     = var.compartment_id
   kubernetes_version = var.kubernetes_version
-  name               = "cc-oke-cluster"
+  name               = "oke-cluster"
   vcn_id             = module.vcn.vcn_id
 
   endpoint_config {
@@ -26,7 +26,7 @@ resource "oci_containerengine_node_pool" "k8s_node_pool" {
   cluster_id         = oci_containerengine_cluster.k8s_cluster.id
   compartment_id     = var.compartment_id
   kubernetes_version = var.kubernetes_version
-  name               = "cc-oke-node-pool"
+  name               = "oke-node-pool"
 
   node_config_details {
     placement_configs {
@@ -52,6 +52,6 @@ resource "oci_containerengine_node_pool" "k8s_node_pool" {
 
   initial_node_labels {
     key   = "name"
-    value = "cc-oke-cluster"
+    value = "oke-cluster"
   }
 }

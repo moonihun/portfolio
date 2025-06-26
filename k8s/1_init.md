@@ -1,38 +1,4 @@
-# Kubernetes
-
-## 1. Kind 설치
-
-### MacOS
-
-```bash
-# For Intel Macs
-[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.29.0/kind-darwin-amd64
-
-# For M1 / ARM Macs
-[ $(uname -m) = arm64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.29.0/kind-darwin-arm64
-chmod +x ./kind
-mv ./kind /some-dir-in-your-PATH/kind
-```
-
-### Linux
-
-```bash
-# For AMD64 / x86_64
-[ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.29.0/kind-linux-amd64
-
-# For ARM64
-[ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.29.0/kind-linux-arm64
-chmod +x ./kind
-sudo mv ./kind /usr/local/bin/kind
-```
-
-## 2. Kind Cluster 생성
-
-```bash
-kind create cluster --config kind-cluster.yaml
-```
-
-## 3. Helm 설치
+## 1. Helm 설치
 
 ```bash
 # For macOS
@@ -64,8 +30,10 @@ helm repo add `이름` `저장소`
 | geek-cookbook  | https://geek-cookbook.github.io/charts/             |
 | metrics-server | https://kubernetes-sigs.github.io/metrics-server/   |
 | argo           | https://argoproj.github.io/argo-helm                |
+| emberstack     | https://emberstack.github.io/helm-charts            |
+| jetstack       | https://charts.jetstack.io                          |
 
-## 4. kubectl 설치
+## 2. kubectl 설치
 
 ```bash
 # For macOS
@@ -94,7 +62,7 @@ echo 'alias k=kubectl' >>~/.zshrc
 echo 'complete -o default -F __start_kubectl k' >>~/.zshrc
 ```
 
-## 5. Krew 설치
+## 3. Krew 설치
 
 ```bash
 # For macOS/Linux
@@ -117,7 +85,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 source >> ~/.zshrc
 ```
 
-## 5. Krew 플러그인 설치
+## 4. Krew 플러그인 설치
 
 ```bash
 # kubectx
@@ -130,43 +98,7 @@ kubectl krew install ns
 kubectl krew install neat
 ```
 
-## 6. Gateway API CRD 설치
-
-```bash
-kubectl get crd gateways.gateway.networking.k8s.io &> /dev/null || \
-  { kubectl kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v1.3.0" | kubectl apply -f -; }
-```
-
-## 7. Gateway API 구현체 설치
-
-```bash
-# NGINX Gateway Fabric
-helm install ngf oci://ghcr.io/nginx/charts/nginx-gateway-fabric \
-  --create-namespace -n nginx-gateway \
-  --set nginx.service.type=NodePort \
-  --set-json 'nginx.service.nodePorts=[{"port":30000,"listenerPort":80},{"port":30001,"listenerPort":443}]'
-
-# Or
-helm install ngf oci://ghcr.io/nginx/charts/nginx-gateway-fabric \
-  --create-namespace -n nginx-gateway \
-  -f nginx-gateway-fabric/values.yaml
-```
-
-## 8. Gateway
-
-```bash
-kubectl apply -f nginx-gateway-fabric/gateway.yaml
-```
-
-## 9. Metrics Server
-
-```bash
-helm upgrade --install -f metrics-server/override.yaml \
-  --create-namespace -n metrics-server \
-  metrics-server metrics-server/metrics-server
-```
-
-## 10. k9s 설치
+## 5. k9s 설치
 
 ```bash
 # For macOS
@@ -181,10 +113,4 @@ curl -LO https://github.com/derailed/k9s/releases/download/${VERSION}/k9s_${OS}_
 
 sudo apt install ./k9s_${OS}_${ARCH}.deb
 rm k9s_${OS}_${ARCH}.deb
-```
-
-## 11. Kind Cluster 삭제
-
-```bash
-kind delete cluster
 ```

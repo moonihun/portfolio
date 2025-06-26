@@ -1,0 +1,7 @@
+user_ocid = "your_user_ocid"
+fingerprint = "your_fingerprint"
+tenancy_ocid = "your_tenancy_ocid"
+region = "your_region"
+private_key_path = "your_private_key_path"
+compartment_id = "your_compartment_id"
+kubernetes_version = "v1.33.1"

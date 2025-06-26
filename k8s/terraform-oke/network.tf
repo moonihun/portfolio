@@ -9,8 +9,8 @@ module "vcn" {
   local_peering_gateways       = null
   nat_gateway_route_rules      = null
 
-  vcn_name      = "cc-oke-vcn"
-  vcn_dns_label = "ccokevcn"
+  vcn_name      = "oke-vcn"
+  vcn_dns_label = "okevcn"
   vcn_cidrs     = ["10.0.0.0/16"]
 
   create_internet_gateway = true
@@ -25,7 +25,7 @@ resource "oci_core_subnet" "vcn_private_subnet" {
 
   route_table_id             = module.vcn.nat_route_id
   security_list_ids          = [oci_core_security_list.private_subnet_sl.id]
-  display_name               = "cc-oke-private-subnet"
+  display_name               = "oke-private-subnet"
   prohibit_public_ip_on_vnic = true
 }
 
@@ -36,14 +36,14 @@ resource "oci_core_subnet" "vcn_public_subnet" {
 
   route_table_id    = module.vcn.ig_route_id
   security_list_ids = [oci_core_security_list.public_subnet_sl.id]
-  display_name      = "cc-oke-public-subnet"
+  display_name      = "oke-public-subnet"
 }
 
 resource "oci_core_security_list" "private_subnet_sl" {
   compartment_id = var.compartment_id
   vcn_id         = module.vcn.vcn_id
 
-  display_name = "cc-oke-private-subnet-sl"
+  display_name = "oke-private-subnet-sl"
 
   egress_security_rules {
     stateless        = false
@@ -64,7 +64,7 @@ resource "oci_core_security_list" "public_subnet_sl" {
   compartment_id = var.compartment_id
   vcn_id         = module.vcn.vcn_id
 
-  display_name = "cc-oke-public-subnet-sl"
+  display_name = "oke-public-subnet-sl"
 
   egress_security_rules {
     stateless        = false

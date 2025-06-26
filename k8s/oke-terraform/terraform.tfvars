@@ -1,7 +1,0 @@
-user_ocid = ""
-fingerprint = ""
-tenancy_ocid = ""
-region = ""
-private_key_path = ""
-compartment_id = ""
-kubernetes_version = "v1.33.1"

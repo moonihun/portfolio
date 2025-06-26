@@ -33,7 +33,7 @@ bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scrip
 ## 4. Terraform 프로비저닝
 
 ```bash
-# k8s/oke-terraform/terraform.tfvars
+# terraform.tfvars
 user_ocid = "your_user_ocid"
 fingerprint = "your_fingerprint"
 tenancy_ocid = "your_tenancy_ocid"
@@ -42,6 +42,7 @@ private_key_path = "your_private_key_path"
 compartment_id = "your_compartment_id"
 kubernetes_version = "v1.33.1"
 
+# 실행
 terraform init
 terraform plan
 terraform apply
