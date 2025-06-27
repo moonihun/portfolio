@@ -1,3 +1,14 @@
+# 개발환경 구성
+
+## 목차
+
+1. [Helm 설치](#1-helm-설치)
+1. [Helm repo 정리](#repo)
+1. [kubectl 설치](#2-kubectl-설치)
+1. [krew 설치](#3-krew-설치)
+1. [krew 플러그인](#4-krew-플러그인-설치)
+1. [k9s 설치](#5-k9s-설치)
+
 ## 1. Helm 설치
 
 ```bash
@@ -14,24 +25,29 @@ sudo apt-get install helm
 helm repo add `이름` `저장소`
 ```
 
-# Helm Repo
+---
 
-| NAME           | URL                                                 |
-| :------------- | :-------------------------------------------------- |
-| bitnami        | https://charts.bitnami.com/bitnami                  |
-| kubernetes     | https://charts.helm.sh/stable                       |
-| metallb        | https://metallb.github.io/metallb                   |
-| traefik        | https://traefik.github.io/charts                    |
-| istio          | https://istio-release.storage.googleapis.com/charts |
-| kiali          | https://kiali.org/helm-charts                       |
-| caddy          | https://caddyserver.github.io/ingress/              |
-| gloo           | https://storage.googleapis.com/solo-public-helm     |
-| kong           | https://charts.konghq.com                           |
-| geek-cookbook  | https://geek-cookbook.github.io/charts/             |
-| metrics-server | https://kubernetes-sigs.github.io/metrics-server/   |
-| argo           | https://argoproj.github.io/argo-helm                |
-| emberstack     | https://emberstack.github.io/helm-charts            |
-| jetstack       | https://charts.jetstack.io                          |
+## Helm Repo
+
+| NAME           | URL                                                        |
+| :------------- | :--------------------------------------------------------- |
+| bitnami        | https://charts.bitnami.com/bitnami                         |
+| kubernetes     | https://charts.helm.sh/stable                              |
+| metallb        | https://metallb.github.io/metallb                          |
+| traefik        | https://traefik.github.io/charts                           |
+| istio          | https://istio-release.storage.googleapis.com/charts        |
+| kiali          | https://kiali.org/helm-charts                              |
+| caddy          | https://caddyserver.github.io/ingress/                     |
+| gloo           | https://storage.googleapis.com/solo-public-helm            |
+| kong           | https://charts.konghq.com                                  |
+| geek-cookbook  | https://geek-cookbook.github.io/charts/                    |
+| metrics-server | https://kubernetes-sigs.github.io/metrics-server/          |
+| argo           | https://argoproj.github.io/argo-helm                       |
+| emberstack     | https://emberstack.github.io/helm-charts                   |
+| jetstack       | https://charts.jetstack.io                                 |
+| gitlab         | https://charts.gitlab.io/                                  |
+| gitea          | https://dl.gitea.com/charts/                               |
+| open-telemetry | https://open-telemetry.github.io/opentelemetry-helm-charts |
 
 ## 2. kubectl 설치
 

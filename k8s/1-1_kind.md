@@ -1,5 +1,3 @@
-# Kubernetes
-
 ## 1. Kind 설치
 
 ### MacOS

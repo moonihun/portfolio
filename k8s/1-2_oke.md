@@ -1,5 +1,3 @@
-# Kubernetes
-
 ## 1. Oracle Cloud 계정 생성
 
 - 계정 생성
