@@ -86,3 +86,9 @@ helm upgrade --install \
 > [**➡️ 자세히 보기**](6_opentelemetry.md)
 
 - OpenTelemetry 설치
+
+## 7. Kustomize
+
+> [**➡️ 자세히 보기**](7_kustomize.md)
+
+- Kustomize 사용법

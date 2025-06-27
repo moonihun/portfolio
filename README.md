@@ -12,5 +12,6 @@
 1. Gateway API 구성
 1. ArgoCD
 1. OpenTelemetry
+1. Kustomize
 
 ---
