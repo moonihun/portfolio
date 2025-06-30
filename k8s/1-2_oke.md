@@ -52,7 +52,11 @@ terraform apply
 oci ce cluster create-kubeconfig --cluster-id {your-cluster-id} --file $HOME/.kube/config --region {your-region} --token-version 2.0.0  --kube-endpoint PUBLIC_ENDPOINT
 ```
 
-## 6. 리소스 정리
+## 6. CNI 변경 (flannel -> cilium)
+
+[공식 문서](https://docs.oracle.com/ko/learn/oke-flannel-to-cilium-cni-plugin/index.html)
+
+## 7. 리소스 정리
 
 ```bash
 terraform destroy
